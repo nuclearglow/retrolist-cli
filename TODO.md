@@ -15,3 +15,4 @@
 - async: client to connect to remote retrolist database, sync contents
 - async: watch changes to JSON files, auto-sync
 - async: watch changes to database, auto-sync
+- version support / build and tag version lifecycle
