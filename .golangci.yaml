@@ -1,0 +1,43 @@
+version: "2"
+run:
+  concurrency: 4
+  go: "1.24"
+linters:
+  enable:
+    - goconst
+    - misspell
+    - nakedret
+    - prealloc
+    - staticcheck
+    - unconvert
+    - unparam
+  disable:
+    - containedctx
+    - contextcheck
+    - paralleltest
+  exclusions:
+    generated: lax
+    presets:
+      - comments
+      - common-false-positives
+      - legacy
+      - std-error-handling
+    paths:
+      - third_party$
+      - builtin$
+      - examples$
+formatters:
+  enable:
+    - gofmt
+    - goimports
+  exclusions:
+    generated: lax
+    paths:
+      - third_party$
+      - builtin$
+      - examples$
+output:
+  formats:
+    text:
+      path: stdout
+      print-issued-lines: false
