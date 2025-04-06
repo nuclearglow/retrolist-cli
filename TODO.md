@@ -5,7 +5,9 @@
 
 ## features
 
-- read/write .retrodo.json files
+- handle RetroList and Item DONE
+- read/write .retrolist.json files
+- Item orderIndex uint handling
 - async: recursively walk down the home directory and load all .retrodo.json files
 - tui: list of all databases/files and navigate
 - tui: list all todos

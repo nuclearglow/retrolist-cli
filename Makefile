@@ -12,7 +12,7 @@ clean:
 
 # production builds: consider ldflags -s -w
 compile:
-	go build -o=bin/pit -ldflags="-X 'pit.svenvowe.de/config.BuildVersion=0.0.1' -X 'pit.svenvowe.de/config.BuildTime=$(FORMATTED_DATE)'"
+	go build -o=bin/pit -ldflags="-X 'retrocli.svenvowe.de/config.BuildVersion=0.0.1' -X 'retrocli.svenvowe.de/config.BuildTime=$(FORMATTED_DATE)'"
 	echo -e "Built ${COLOR_LIGHT_GREEN}./bin/pit${COLOR_BLACK}"
 
 run:
