@@ -51,18 +51,11 @@ func (r *RetroList) RemoveItem(uuid string) {
 func (r *RetroList) Save(path string) error {
 	var file *os.File
 
-	_, err := os.Stat(path)
-	if os.IsNotExist(err) {
-		file, err = os.Create(path)
-		if err != nil {
-			return fmt.Errorf("could not create RetroList at %s", path)
-		}
-	} else {
-		file, err = os.Open(path)
-		if err != nil {
-			return fmt.Errorf("could not open RetroList at %s", path)
-		}
+	file, err := os.Create(path)
+	if err != nil {
+		return fmt.Errorf("could not create RetroList at %s", path)
 	}
+
 	defer file.Close()
 
 	var writer strings.Builder
