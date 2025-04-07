@@ -16,6 +16,10 @@ type Item struct {
 }
 
 func NewItem(title string, quantity uint) *Item {
+	if quantity < 1 {
+		quantity = 1
+	}
+
 	return &Item{
 		UUID:      uuid.New().String(),
 		Title:     title,
