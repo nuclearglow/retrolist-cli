@@ -22,7 +22,7 @@ lint:
 	watchexec --exts go --watch . --restart --clear=clear "golangci-lint run"
 
 watch:
-	watchexec --exts go,json --no-vcs-ignore --watch . --restart --clear=clear "go run ."
+	watchexec --exts go,json --watch . --restart --clear=clear "go run ."
 
 benchmark:
 	hyperfine --warmup 3 --prepare 'make clean' 'make compile'
