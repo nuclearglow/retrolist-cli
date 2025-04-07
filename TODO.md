@@ -6,6 +6,7 @@
 ## features
 
 - handle RetroList and Item DONE
+- display a RetroList in a table
 - read/write .retrolist.json files
 - Item orderIndex uint handling
 - async: recursively walk down the home directory and load all .retrodo.json files

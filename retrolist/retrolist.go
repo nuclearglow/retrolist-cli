@@ -49,8 +49,6 @@ func (r *RetroList) RemoveItem(uuid string) {
 }
 
 func (r *RetroList) Save(path string) error {
-	var file *os.File
-
 	file, err := os.Create(path)
 	if err != nil {
 		return fmt.Errorf("could not create RetroList at %s", path)
@@ -71,4 +69,31 @@ func (r *RetroList) Save(path string) error {
 	fmt.Fprintln(file, writer.String())
 
 	return nil
+}
+
+func (r RetroList) Load(path string) (*RetroList, error) {
+	_, err := os.Stat(path)
+	if os.IsNotExist(err) {
+		fmt.Printf("RetroList does not exist at %s\n", path)
+		return nil, err
+	}
+
+	file, err := os.Open(path)
+	if err != nil {
+		fmt.Printf("could not open RetroList at %s\n", path)
+		return nil, err
+	}
+
+	defer file.Close()
+
+	var list *RetroList
+
+	decoder := json.NewDecoder(file)
+	err = decoder.Decode(list)
+	if err != nil {
+		fmt.Printf("could not decode RetroList at %s\n", path)
+		return nil, err
+	}
+
+	return list, nil
 }

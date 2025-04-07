@@ -11,7 +11,10 @@ import (
 func main() {
 	fmt.Printf("Welcome to Retro 2 CLI\n")
 
-	// create some test data for now
+	// test: load retrolist and display as a table
+	// https://github.com/charmbracelet/bubbletea/blob/main/examples/table/main.go
+
+	// test: create some test data for now
 	list := retrolist.NewRetroList("Test List 2", "Testing 2")
 
 	for i := range 10 {
